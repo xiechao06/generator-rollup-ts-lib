@@ -26,6 +26,12 @@ module.exports = class extends Generator {
   }
 
   writing () {
+    this.fs.extendJSON(this.destinationPath('package.json'), {
+      license: 'MIT',
+      scripts: {
+        commit: 'git-cz'
+      }
+    })
     this.fs.copy(
       this.templatePath('dummyfile.txt'),
       this.destinationPath('dummyfile.txt')
@@ -33,6 +39,30 @@ module.exports = class extends Generator {
   }
 
   install () {
-    this.yarnInstall(['gulp'], { 'dev': true })
+    this.yarnInstall([
+      'rollup',
+      'rollup-plugin-commonjs',
+      'rollup-plugin-node-resolve',
+      'rollup-plugin-typescript2',
+      'rollup-plugin-sourcemaps',
+      'jest',
+      'ts-jest',
+      'tslint',
+      'ts-jest',
+      'ts-node',
+      'tslint',
+      'tslint-config-prettier',
+      'tslint-config-standard',
+      'typedoc',
+      'typescript',
+      'husky',
+      'lint-staged',
+      'rimraf',
+      'semantic-release',
+      'travis-deploy-once',
+      'coveralls'
+    ], { 'dev': true })
+    this.spawnCommand('npx',
+      'commitizen init cz-conventional-changelog --yarn --dev --exact'.split(' '))
   }
 }
