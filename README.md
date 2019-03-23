@@ -1,4 +1,7 @@
 # generator-rollup-ts-lib [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/xiechao06/generator-rollup-ts-lib.svg)](https://greenkeeper.io/)
+
 > A generator using rollup as bundler, to generate a typescript based library
 
 ## Installation
